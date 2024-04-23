@@ -3,6 +3,7 @@ const UnkownPage = () => {
     let messages = [
         'Have you lost your way, kiddo?',
         'Damn it! This dead-end road.',
+        'Kieran is an idiot!!',
         'The Aurors blocked this road, Harry!'
     ];
 
