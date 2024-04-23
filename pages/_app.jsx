@@ -37,21 +37,21 @@ export default function AwardApp({ Component, pageProps }) {
       name: "Support",
       icon: "fab fa-discord",
       activeIcon: "fab fa-discord",
-      href: "https://discord.gg/ZcDprCrFTn",
+      href: "https://discord.gg/jp9DtyEpuG",
     },
     {
       link: true,
       name: "Add Bot",
       icon: "fal fa-robot",
       activeIcon: "fab fa-robot",
-      href: "https://discord.com/api/oauth2/authorize?client_id=774043716797071371&permissions=277028620608&scope=bot%20applications.commands",
+      href: "https://discord.com/oauth2/authorize?client_id=862340553899507715&permissions=2147871840&scope=bot%20applications.commands",
     },
        {
       link: true,
       name: "Vote",
       icon: "fa fa-plus",
       activeIcon: "fa fa-plus",
-      href: "https://top.gg/bot/774043716797071371/vote",
+      href: "https://top.gg/bot/862340553899507715/vote",
     },
     {
       link: true,
@@ -71,7 +71,7 @@ export default function AwardApp({ Component, pageProps }) {
       />
       <Head>
         <title>
-          MusicMaker
+          TadaBot
         </title>
       </Head>
       <main className="transition-all duration-200 z-10 absolute inset-0 px-5 h-screen max-w-7xl w-full mx-auto">
