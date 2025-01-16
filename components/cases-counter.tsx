@@ -1,14 +1,29 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Gavel } from 'lucide-react'
 
 export default function CasesCounter() {
   const [count, setCount] = useState(0)
-  const targetCount = 1000
+  const [targetCount, setTargetCount] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    const fetchCases = async () => {
+      try {
+        const response = await fetch('http://utopia.pylex.xyz:9349/')
+        const data = await response.json()
+        const casesCount = Object.keys(data).length
+        setTargetCount(casesCount)
+      } catch (error) {
+        console.error('Failed to fetch cases:', error)
+      }
+    }
+
+    fetchCases()
+  }, [])
 
   if (isInView && count < targetCount) {
     setTimeout(() => {
@@ -42,4 +57,3 @@ export default function CasesCounter() {
     </motion.div>
   )
 }
-
