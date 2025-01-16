@@ -6,7 +6,6 @@ import { Gavel } from 'lucide-react'
 
 export default function CasesCounter() {
   const [count, setCount] = useState(0)
-  const [targetCount, setTargetCount] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -14,8 +13,8 @@ export default function CasesCounter() {
     const fetchCases = async () => {
       try {
         const response = await fetch('http://utopia.pylex.xyz:9349/')
-        const casesCount = await response.json()
-        setTargetCount(casesCount)
+        const casesCount = await response.text()
+        setCount(parseInt(casesCount))
       } catch (error) {
         console.error('Failed to fetch cases:', error)
       }
@@ -25,15 +24,6 @@ export default function CasesCounter() {
     const interval = setInterval(fetchCases, 30000)
     return () => clearInterval(interval)
   }, [])
-
-  useEffect(() => {
-    if (isInView && count < targetCount) {
-      const timer = setTimeout(() => {
-        setCount(prev => Math.min(prev + Math.ceil((targetCount - prev) * 0.1), targetCount))
-      }, 50)
-      return () => clearTimeout(timer)
-    }
-  }, [count, targetCount, isInView])
 
   return (
     <motion.div
