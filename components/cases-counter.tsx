@@ -14,21 +14,15 @@ export default function CasesCounter() {
     const fetchCases = async () => {
       try {
         const response = await fetch('http://utopia.pylex.xyz:9349/')
-        const data = await response.json()
-        const casesCount = Object.keys(data).length
+        const casesCount = await response.json()
         setTargetCount(casesCount)
       } catch (error) {
         console.error('Failed to fetch cases:', error)
       }
     }
 
-    // Initial fetch
     fetchCases()
-
-    // Set up polling every 30 seconds
     const interval = setInterval(fetchCases, 30000)
-
-    // Cleanup interval on component unmount
     return () => clearInterval(interval)
   }, [])
 
