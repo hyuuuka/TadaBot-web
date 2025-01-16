@@ -22,14 +22,24 @@ export default function CasesCounter() {
       }
     }
 
+    // Initial fetch
     fetchCases()
+
+    // Set up polling every 30 seconds
+    const interval = setInterval(fetchCases, 30000)
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval)
   }, [])
 
-  if (isInView && count < targetCount) {
-    setTimeout(() => {
-      setCount(prev => Math.min(prev + Math.ceil((targetCount - prev) * 0.1), targetCount))
-    }, 50)
-  }
+  useEffect(() => {
+    if (isInView && count < targetCount) {
+      const timer = setTimeout(() => {
+        setCount(prev => Math.min(prev + Math.ceil((targetCount - prev) * 0.1), targetCount))
+      }, 50)
+      return () => clearTimeout(timer)
+    }
+  }, [count, targetCount, isInView])
 
   return (
     <motion.div
