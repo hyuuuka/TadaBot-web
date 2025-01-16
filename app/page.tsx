@@ -48,7 +48,7 @@ export default function Home() {
                 </motion.div>
                 <AnimatedButton 
                   className="bg-white text-blue-600 hover:bg-white/90"
-                  onClick={() => window.open('https://discord.gg/your-invite', '_blank')}
+                  onClick={() => window.open('https://discord.com/invite/Dk7C6kBJ2C', '_blank')}
                 >
                   <span className="flex items-center gap-2">
                     Join Our Server
@@ -170,7 +170,7 @@ export default function Home() {
               <p className="text-xl mb-12 max-w-2xl mx-auto">Be part of our community dedicated to making Discord a safer place for everyone!</p>
               <AnimatedButton 
                 className="bg-white text-blue-600 hover:bg-white/90"
-                onClick={() => window.open('https://discord.gg/your-invite', '_blank')}
+                onClick={() => window.open('https://discord.com/invite/Dk7C6kBJ2C', '_blank')}
               >
                 <span className="flex items-center gap-2">
                   Join Now
