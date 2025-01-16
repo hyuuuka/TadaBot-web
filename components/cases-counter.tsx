@@ -12,9 +12,19 @@ export default function CasesCounter() {
   useEffect(() => {
     const fetchCases = async () => {
       try {
-        const response = await fetch('http://utopia.pylex.xyz:9349/')
+        const response = await fetch('http://utopia.pylex.xyz:9349/', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store'
+        })
         const casesCount = await response.text()
-        setCount(parseInt(casesCount))
+        const numberCount = Number(casesCount)
+        if (!isNaN(numberCount)) {
+          setCount(numberCount)
+        }
       } catch (error) {
         console.error('Failed to fetch cases:', error)
       }
