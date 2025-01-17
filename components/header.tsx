@@ -40,6 +40,7 @@ export default function Header() {
               variant="default"
               size="sm"
               className="rounded-full px-6"
+              onClick={() => window.open('https://discord.gg/xeYzRYrwgE', '_blank')}
             >
               Join Now
             </Button>
@@ -49,4 +50,3 @@ export default function Header() {
     </header>
   )
 }
-
